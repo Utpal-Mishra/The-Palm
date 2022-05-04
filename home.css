@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Montserrat:ital,wght@0,200;1,200&display=swap');
+
 body{
      margin: 0;
      padding: 0;
@@ -6,6 +8,12 @@ body{
      align-items: center;
      background: #000000;
 }
+
+html{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+} 
 
 top, bottom {
     position: fixed;
@@ -22,6 +30,16 @@ top {
 bottom {
     bottom: 0;
     background-color: black;
+}
+
+.title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  font-size: 200px;
+  transform: translate(-47%, -50%);
+  color: white;
+  width: 70%;
 }
 
 /* top section */
