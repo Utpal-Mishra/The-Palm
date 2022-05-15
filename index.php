@@ -1,4 +1,1 @@
-<?php 
-  include_once("index.html"); 
-  exit();
-?>
+<?php include_once("index.html"); ?> 
