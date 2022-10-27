@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<!-- https://www.youtube.com/watch?v=ShPPkZEeLPo -->
+<!-- https://ionic.io/ionicons -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Radial Menu</title>
+    <link rel="shortcut icon" href="images/Logo.png">
+    <link rel="stylesheet" href="radialmenu.css">
+</head>
+
+<body></body>
+
+    <div class="menu">
+        <div class="toggle">
+            <ion-icon name="add-outline"></ion-icon>
+        </div>
+        
+        <!-- ML Projects -->
+        <li style="--i:0;">
+            <a href="https://github.com/Utpal-Mishra">
+                <ion-icon name="git-network-outline"></ion-icon>
+            </a>
+        </li>
+        
+        <!-- Deployed ML Projects -->
+        <li style="--i:1;">
+            <a href="https://github.com/Utpal-Mishra">
+                <ion-icon name="planet-outline"></ion-icon>
+            </a>
+        </li>
+        
+        <!-- Research -->
+        <li style="--i:2;">
+            <a href="https://github.com/Utpal-Mishra">
+                <ion-icon name="infinite-outline"></ion-icon>
+            </a>
+        </li>
+        
+        <!-- Industrial Projects -->
+        <li style="--i:3;">
+            <a href="experiences.html">
+            <!-- <a href="industrialprojects.html"> -->
+                <ion-icon name="people-outline"></ion-icon>
+            </a>
+        </li>
+        
+        <!-- Language Projects -->
+        <li style="--i:4;">
+            <a href="https://github.com/Utpal-Mishra">
+                <ion-icon name="pencil-outline"></ion-icon>
+            </a>
+        </li>
+        
+        <!-- Reflections -->
+        <li style="--i:5;">
+            <a href="https://github.com/Utpal-Mishra">
+                <ion-icon name="bulb-outline"></ion-icon>
+            </a>
+        </li>
+        
+        <!-- <li style="--i:6;">                                           -->
+        <!--     <a href="https://github.com/Utpal-Mishra">                -->
+        <!--         <ion-icon name="game-controller-outline"></ion-icon>  -->
+        <!--     </a>                                                      -->
+        <!-- </li>                                                         -->
+        
+        <!-- <li style="--i:7;">                                 -->
+        <!--    <a href="https://github.com/Utpal-Mishra">       -->
+        <!--        <ion-icon name="camera-outline"></ion-icon>  -->
+        <!--    </a>                                             -->
+        <!-- </li>                                               -->
+    
+    </div>
+        
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        
+    <script>
+        let toggle = document.querySelector('.toggle');
+        let menu = document.querySelector('.menu');
+        toggle.onclick = function(){
+            menu.classList.toggle('active');
+        }
+    </script>    
+
+</html>
