@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Montserrat:ital,wght@0,200;1,200&display=swap');
+
+body{
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     text-align: center;
+     background: #000000;
+     line-height: 1.5;
+     letter-spacing: 1px;
+}
+
+html{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+} 
+
+.wrapper{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(images/);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.testimonial{
+    padding: 10px 100px;
+}
+
+article{
+    color: white;
+}
+
+article h1{
+    font-size: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+
+article h1:after{
+    content:"";
+    height: 5px;
+    width: 225px;
+    background-color: #fff;
+    display: block;
+    margin: auto;
+}
+
+article img{
+    height: 200px;
+    width: 200px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+blockquote{
+    font-size: 15px;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+article h5{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+article p{
+    font-size: 17px;
+    text-align: center;
+}

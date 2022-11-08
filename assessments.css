@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Montserrat:ital,wght@0,200;1,200&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+html{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+} 
+
+.container{
+    min-height: 100vh; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 100px 0;
+}
+
+.timeline{
+    width:80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.timeline a{
+    color: white;
+}
+
+a:link {
+      text-decoration: none;
+}
+
+a:visited {
+      text-decoration: none;
+}
+
+a:hover {
+      text-decoration: none;
+}
+
+a:active {
+      text-decoration: none;
+}
+
+
+.timeline ul{
+    list-style: none;
+}
+
+.timeline ul li{
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.timeline-content li: last-child{
+    margin-bottom: 0;
+}
+
+.timeline-content h1{
+    font-size: 25px;
+    /* font-weight: 500; */
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.timeline-content p{
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 300;
+}
+
+.timeline-content .date{
+    font-size: 13px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    letter-spacing: 0px;
+}
+
+@media only screen and (min-width: 768px){
+    .timeline::before{
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        left: 50%;
+        background-color: gray;
+    }
+    
+    .timeline ul li{
+        width: 50%;
+        margin-bottom: 50px;
+        position: relative;    
+    }
+    
+    .timeline ul li:nth-child(odd){
+        float: left;
+        clear: right;
+        transform: translate(-30px); 
+        border-radius: 20px 0px 20px 20px;
+    }
+    
+   .timeline ul li:nth-child(even){
+        float: right;
+        clear: left;
+        transform: translate(30px); 
+        border-radius: 0px 20px 20px 20px;
+    }
+    
+    .timeline ul li::after{
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background-color: gray;
+        border-radius: 50%;
+        top: 0;
+    }
+    
+    .timeline ul li:nth-child(odd)::after{
+        transform: translate(50%, -50%);
+        right: -31.5px;
+    }
+    
+    .timeline ul li:nth-child(even)::after{
+        transform: translate(-50%, -50%);
+        left: -28.5px;
+    }
+    
+    .timeline ul li:hover::after{
+        background-color: aqua;
+    }
+    
+    .timeline-content .date{
+        position: absolute;
+        top: -20px;
+    }
+}

@@ -125,3 +125,12 @@ ul li a{
     padding: 0 30px;
     display: block;
 }
+
+.icon{
+    transition: transform 0.5s;
+    font-size: 17px;
+}
+
+.icon:hover{
+    transform: translateY(-10px);
+}

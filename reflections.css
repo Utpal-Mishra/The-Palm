@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Montserrat:ital,wght@0,200;1,200&display=swap');
+
+body{
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: #000000;
+}
+
+html{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+} 
+
+.container{
+    height: 100vh; 
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/Sunlight.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+}
+
+.navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+
+/*
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 60px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+} 
+*/  
+
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+
+.col{
+    flex-basis: 50%;
+    color: white;
+    margin-top: 90px;
+    margin-left: 30px;
+}
+
+h1{
+    font-size: 90px;
+    margin: 10px 0px;
+}
+
+p{
+    font-size: 20px;
+    line-height: 1px;
+    padding-left: 8px;
+}
+
+.card{
+    width: 200px;
+    height: 250px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 3px 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 12px 12px;
+    
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s;
+    
+}
+
+.card1{
+   background-image: url(images/Track.jpg);
+}
+
+.card2{
+   background-image: url(images/Abstract.jpg);
+}
+
+.card3{
+   background-image: url(images/Paint.jpg);
+}
+
+.card4{
+   background-image: url(images/PalmPrint.jpg);
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+h3{
+    color: #fff;
+    text-shadow: 0 0 5px #999;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
