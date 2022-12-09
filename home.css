@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Montserrat:ital,wght@0,200;1,200&display=swap');
 
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+    .circle {
+        font-size: 80px;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    .circle {
+        font-size: 30px;
+    }
+}
+
 body{
      margin: 0;
      padding: 0;
