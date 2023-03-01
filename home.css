@@ -1,19 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Montserrat:ital,wght@0,200;1,200&display=swap');
 
-/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
-@media screen and (min-width: 601px) {
-    .circle {
-        font-size: 80px;
-    }
-}
-
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 600px) {
-    .circle {
-        font-size: 30px;
-    }
-}
-
 body{
      margin: 0;
      padding: 0;
@@ -53,7 +39,7 @@ bottom {
   font-size: 200px;
   transform: translate(-47%, -50%);
   color: white;
-  width: 70%;
+  width: 60%;
 }
 
 /* top section */
@@ -147,4 +133,132 @@ ul li a{
 
 .icon:hover{
     transform: translateY(-10px);
+}
+
+/*Media Queries: https://www.youtube.com/watch?v=yU7jJ3NbPdA&t=96s 
+                 https://stackoverflow.com/questions/30761487/how-do-you-force-a-website-to-be-in-landscape-mode-when-viewed-on-a-mobile-devic
+                 https://stackoverflow.com/questions/8738072/forcing-web-site-to-show-in-landscape-mode-only*/ 
+
+/*
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation:landscape) {
+
+    #lock {
+      -ms-transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+}
+*/
+
+@media (orientation:portrait){
+    body{
+        transform: rotate(90deg);
+    }
+    
+    .title {
+      position: absolute;
+      top: 25%;
+      right: 100%;
+      font-size: 70px;
+      transform: translate(45%, -60%);
+      color: white;
+      width: 100%;
+    }
+
+    top, bottom {
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: 100%;
+    }
+    
+    top {
+        top: 0;
+        background-color: black;
+    }
+    
+    bottom {
+        bottom: 0;
+        background-color: black;
+    }
+
+    /* top section */
+    .circle{
+        position: absolute;
+        top: -110px;
+        left: 550px;
+        width: 25vh;
+        height: 25vh;
+        background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+        border-radius: 50%;
+        animation: animate 2s linear infinite;
+    }
+
+    @keyframes animate{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+
+    .circle:after{
+        content: '';
+        position: absolute;
+        top: 15px;
+        right: 15px;  
+        bottom: 15px;
+        left: 15px;
+        border-radius: 50%;
+        background-color: black;
+    }
+
+    .circle span{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+        border-radius: 50%;
+    }
+
+    /* bottom section */
+    ul{
+        position: absolute;
+        top: 30px;
+        left: 300px;
+        transform: translate(20%, 400%);
+        margin: 0;
+        padding: 10px 0;
+        background: #000000;
+        display: flex; 
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    }
+
+    ul li{
+        list-style: none;
+        text-align: center;
+        display: block;  
+        /* border-left: 1px solid rgba(255, 255, 255, 0.2); */
+        /* border-right: 1px solid rgba(255, 255, 255, 0.2); */
+    }
+
+    ul li a{
+        text-decoration: none;
+        padding: 0 20px;
+        display: block;
+    }
+
+    .icon{
+        transition: transform 0.5s;
+        font-size: 15px;
+    }
+    
+    .icon:hover{
+        transform: translateY(-10px);
+    }
 }
