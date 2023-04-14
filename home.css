@@ -163,7 +163,7 @@ ul li a{
       top: 25%;
       right: 100%;
       font-size: 70px;
-      transform: translate(60%, -90%);
+      transform: translate(30%, -85%);
       color: white;
       width: 100%;
     }
@@ -188,8 +188,8 @@ ul li a{
     /* top section */
     .circle{
         position: absolute;
-        top: -110px;
-        left: 550px;
+        top: -100px;
+        left: 400px;
         width: 25vh;
         height: 25vh;
         background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
@@ -228,8 +228,8 @@ ul li a{
     /* bottom section */
     ul{
         position: absolute;
-        top: 30px;
-        left: 300px;
+        top: 20px;
+        left: 180px;
         transform: translate(15%, 350%);
         margin: 0;
         padding: 10px 0;
