@@ -36,8 +36,8 @@ bottom {
   position: absolute;
   top: 45%;
   left: 50%;
-  font-size: 200px;
-  transform: translate(-42%, -50%);
+  font-size: 180px;
+  transform: translate(-37%, -50%);
   color: white;
   width: 80%;
   animation: fadeInText 5s;
