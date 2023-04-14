@@ -40,6 +40,16 @@ bottom {
   transform: translate(-42%, -50%);
   color: white;
   width: 80%;
+  animation: fadeInText 5s;
+}
+
+@keyframes fadeInText{
+    from{
+        opacity: 0
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 /* top section */
@@ -60,6 +70,19 @@ bottom {
     }
     to{
         transform: rotate(360deg);
+    }
+}
+
+.circle{
+    animation: fadeInCircle 15s;
+}
+
+@keyframes fadeInCircle{
+    from{
+        opacity: 0
+    }
+    to{
+        opacity: 1;
     }
 }
 
@@ -110,6 +133,16 @@ ul{
     display: flex; 
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    animation: fadeInIcons 17s;
+}
+
+@keyframes fadeInIcons{
+    from{
+        opacity: 0
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 ul li{
