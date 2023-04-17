@@ -36,10 +36,10 @@ bottom {
   position: absolute;
   top: 45%;
   left: 50%;
-  font-size: 180px;
-  transform: translate(-37%, -50%);
+  font-size: 200px;
+  transform: translate(-27%, -50%);
   color: white;
-  width: 80%;
+  width: 100%;
   animation: fadeInText 5s;
 }
 
