@@ -39,11 +39,11 @@ This website provides a platform to:
 To run the project locally, follow these steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/ThePalm.git
+   git clone https://github.com/username/The-Palm.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd ThePalm
+   cd The-Palm
    ```
 3. Open the `index.html` file in a web browser to view the portfolio.
 
