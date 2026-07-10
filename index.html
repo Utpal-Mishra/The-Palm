@@ -22,8 +22,15 @@
       <span class="brand-mark">P</span>
       <span><strong>The Palm</strong><small>Knowledge that keeps growing</small></span>
     </a>
-    <a class="availability" href="#contact"><span></span> Based in Cork, Ireland</a>
+    <div class="top-actions">
+      <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="Play background music">
+        <span class="music-icon" aria-hidden="true">♪</span><span class="music-label">Music off</span>
+      </button>
+      <a class="availability" href="#contact"><span></span> Based in Cork, Ireland</a>
+    </div>
   </header>
+
+  <audio id="background-music" src="songs/adventures.mp3" preload="none" loop></audio>
 
   <main id="main">
     <section class="hero section" id="home">
