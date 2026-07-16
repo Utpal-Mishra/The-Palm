@@ -27,3 +27,42 @@ musicToggle.addEventListener("click",async()=>{
  }
 });
 music.addEventListener("ended",()=>setMusicState(false));
+const recommendationTrack=document.querySelector(".recommendations-track");
+if(recommendationTrack){
+ const recommendationCards=[...recommendationTrack.querySelectorAll(".recommendation-card")];
+ const previousRecommendation=document.querySelector(".recommendation-arrow.previous");
+ const nextRecommendation=document.querySelector(".recommendation-arrow.next");
+ const recommendationDots=document.querySelector(".recommendation-dots");
+ let activeRecommendation=0;
+ const dots=recommendationCards.map((card,index)=>{
+  const dot=document.createElement("button");
+  dot.type="button";
+  dot.className="recommendation-dot";
+  dot.setAttribute("aria-label",`Show recommendation ${index+1}`);
+  dot.addEventListener("click",()=>card.scrollIntoView({behavior:reduced?"auto":"smooth",block:"nearest",inline:"start"}));
+  recommendationDots.appendChild(dot);
+  return dot;
+ });
+ function updateRecommendationControls(index){
+  activeRecommendation=Math.max(0,Math.min(index,recommendationCards.length-1));
+  dots.forEach((dot,dotIndex)=>dot.classList.toggle("active",dotIndex===activeRecommendation));
+  previousRecommendation.disabled=activeRecommendation===0;
+  nextRecommendation.disabled=activeRecommendation===recommendationCards.length-1;
+ }
+ function scrollRecommendation(direction){
+  const target=Math.max(0,Math.min(activeRecommendation+direction,recommendationCards.length-1));
+  recommendationCards[target].scrollIntoView({behavior:reduced?"auto":"smooth",block:"nearest",inline:"start"});
+ }
+ previousRecommendation.addEventListener("click",()=>scrollRecommendation(-1));
+ nextRecommendation.addEventListener("click",()=>scrollRecommendation(1));
+ recommendationTrack.addEventListener("keydown",event=>{
+  if(event.key==="ArrowRight"){event.preventDefault();scrollRecommendation(1)}
+  if(event.key==="ArrowLeft"){event.preventDefault();scrollRecommendation(-1)}
+ });
+ const recommendationObserver=new IntersectionObserver(entries=>{
+  const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+  if(visible) updateRecommendationControls(recommendationCards.indexOf(visible.target));
+ },{root:recommendationTrack,threshold:[.55,.75]});
+ recommendationCards.forEach(card=>recommendationObserver.observe(card));
+ updateRecommendationControls(0);
+}
