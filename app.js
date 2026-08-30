@@ -66,3 +66,52 @@ if(recommendationTrack){
  recommendationCards.forEach(card=>recommendationObserver.observe(card));
  updateRecommendationControls(0);
 }
+
+// Consent-gated GA4 foundation. Add the GA4 ID to the ga-measurement-id meta tag to activate.
+const gaMeasurementId=document.querySelector('meta[name="ga-measurement-id"]')?.content.trim();
+const consentBanner=document.getElementById("analytics-consent");
+const consentAccept=document.getElementById("analytics-accept");
+const consentReject=document.getElementById("analytics-reject");
+window.dataLayer=window.dataLayer||[];
+function gtag(){window.dataLayer.push(arguments)}
+function trackEvent(name,parameters={}){
+ if(localStorage.getItem("the-palm-analytics")==="granted"&&gaMeasurementId){
+  gtag("event",name,parameters);
+ }
+}
+function loadAnalytics(){
+ if(!gaMeasurementId||document.querySelector('script[data-ga4]')) return;
+ const script=document.createElement("script");
+ script.async=true;script.dataset.ga4="true";
+ script.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaMeasurementId)}`;
+ document.head.appendChild(script);
+ gtag("js",new Date());
+ gtag("config",gaMeasurementId,{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});
+}
+if(gaMeasurementId){
+ const analyticsChoice=localStorage.getItem("the-palm-analytics");
+ if(analyticsChoice==="granted") loadAnalytics();
+ else if(!analyticsChoice) consentBanner.hidden=false;
+}
+consentAccept?.addEventListener("click",()=>{
+ localStorage.setItem("the-palm-analytics","granted");consentBanner.hidden=true;loadAnalytics();trackEvent("analytics_consent",{choice:"accepted"});
+});
+consentReject?.addEventListener("click",()=>{
+ localStorage.setItem("the-palm-analytics","denied");consentBanner.hidden=true;
+});
+document.addEventListener("click",event=>{
+ const link=event.target.closest("a,button");
+ if(!link) return;
+ if(link.dataset.event) trackEvent(link.dataset.event,{project:link.dataset.project||undefined,label:link.textContent.trim().slice(0,80)});
+ else if(link.matches('a[href*="linkedin.com"]')) trackEvent("click_linkedin");
+ else if(link.matches('a[href*="github.com"]')) trackEvent("click_github");
+});
+musicToggle.addEventListener("click",()=>trackEvent("toggle_music",{state:music.paused?"off":"on"}));
+const contactForm=document.querySelector(".contact-form");
+let contactStarted=false;
+contactForm?.addEventListener("focusin",()=>{if(!contactStarted){contactStarted=true;trackEvent("contact_form_start")}});
+contactForm?.addEventListener("submit",()=>trackEvent("contact_form_submit"));
+const sectionAnalyticsObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+ if(entry.isIntersecting) trackEvent("view_section",{section:entry.target.id});
+}),{threshold:.55});
+sections.forEach(section=>sectionAnalyticsObserver.observe(section));
