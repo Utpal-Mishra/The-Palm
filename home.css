@@ -36,3 +36,42 @@
 .consent-actions .button{border:0;white-space:nowrap}
 @media(max-width:1050px){.impact-grid{grid-template-columns:repeat(3,1fr)}.case-study-grid{grid-template-columns:1fr}.building-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:720px){.impact-grid{grid-template-columns:repeat(2,1fr)}.impact-grid .stat:last-child{grid-column:1/-1}.building-section>div:first-child{display:block}.building-grid,.credibility-grid{grid-template-columns:1fr}.consent-banner{align-items:stretch;flex-direction:column;bottom:calc(5.5rem + env(safe-area-inset-bottom))}.consent-actions{justify-content:flex-end}}
+
+
+/* Mobile project-card number fix */
+.supporting-projects .project-number{
+  color:rgba(255,255,255,.1);
+  line-height:1;
+  pointer-events:none;
+}
+@media(max-width:760px){
+  .supporting-projects .project{
+    padding-top:1.35rem;
+  }
+  .supporting-projects .project-number{
+    top:1.2rem;
+    right:1.2rem;
+    width:2.45rem;
+    height:2.45rem;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(7,17,13,.48);
+    color:var(--green);
+    font:700 .82rem/1 "Manrope",sans-serif;
+  }
+  .supporting-projects .tag{
+    display:inline-flex;
+    width:max-content;
+    max-width:calc(100% - 3.7rem);
+    min-height:2.45rem;
+    align-items:center;
+  }
+  .supporting-projects .project h3{
+    margin-top:1.35rem;
+    padding-right:0;
+    line-height:1.2;
+    overflow-wrap:anywhere;
+  }
+}
