@@ -11,7 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="home.css?v=20261017-2">
+  <link rel="stylesheet" href="chatbot.css?v=20261018-1">
   <script src="app.js" defer></script>
+  <script src="profile-assistant-data.js?v=20261018-1" defer></script>
+  <script src="chatbot.js?v=20261018-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -259,6 +262,50 @@
       </form>
     </section>
   </main>
+
+  <button class="profile-assistant-launcher" id="profile-assistant-launcher" type="button" aria-haspopup="dialog" aria-controls="profile-assistant">
+    <span aria-hidden="true">✦</span><span class="launcher-label">Ask about Utpal</span>
+  </button>
+
+  <aside class="profile-assistant" id="profile-assistant" role="dialog" aria-modal="true" aria-labelledby="assistant-title" hidden>
+    <div class="assistant-panel">
+      <header class="assistant-header">
+        <div class="assistant-identity"><span class="assistant-avatar" aria-hidden="true">UM</span><div><strong id="assistant-title">Utpal’s profile assistant</strong><small>Answers from approved public evidence</small></div></div>
+        <button class="assistant-close" id="assistant-close" type="button" aria-label="Close profile assistant">×</button>
+      </header>
+      <div class="assistant-tabs" role="tablist" aria-label="Assistant mode">
+        <button class="assistant-tab" type="button" role="tab" aria-selected="true" data-tab="profile">Ask about Utpal</button>
+        <button class="assistant-tab" type="button" role="tab" aria-selected="false" data-tab="match">Match a job</button>
+      </div>
+
+      <section class="assistant-view" data-view="profile" role="tabpanel">
+        <div class="assistant-messages" id="assistant-messages" role="list" aria-live="polite">
+          <div class="assistant-message bot" role="listitem">Hello — I can explain Utpal’s approved public experience, projects and capabilities. I only answer from documented evidence.</div>
+        </div>
+        <div class="assistant-suggestions" id="assistant-suggestions" aria-label="Suggested questions">
+          <button class="assistant-suggestion" type="button" data-question="What does Utpal do at Logitech?">Current role</button>
+          <button class="assistant-suggestion" type="button" data-question="Tell me about his forecasting experience">Forecasting</button>
+          <button class="assistant-suggestion" type="button" data-question="What machine learning experience does he have?">Machine learning</button>
+          <button class="assistant-suggestion" type="button" data-question="How does he work with stakeholders?">Stakeholders</button>
+        </div>
+        <form class="assistant-composer" id="assistant-form">
+          <label class="sr-only" for="assistant-input">Ask about Utpal’s public profile</label>
+          <input id="assistant-input" maxlength="500" autocomplete="off" placeholder="Ask about experience, skills or projects…" required>
+          <button class="assistant-send" type="submit" aria-label="Send question">↑</button>
+        </form>
+      </section>
+
+      <section class="assistant-view jd-view" data-view="match" role="tabpanel" hidden>
+        <div class="jd-intro"><h3>Compare a job description</h3><p>Paste the role below. The matcher separates strong evidence, areas requiring validation and requirements not evidenced in the public profile.</p></div>
+        <label class="sr-only" for="jd-input">Job description</label>
+        <textarea class="jd-input" id="jd-input" maxlength="12000" placeholder="Paste the job description here…"></textarea>
+        <div class="jd-meta"><span>Processed only in this browser</span><span id="jd-count">0 / 12,000</span></div>
+        <div class="jd-actions"><button class="button secondary" id="jd-clear" type="button">Clear</button><button class="button primary" id="jd-analyze" type="button">Compare evidence</button></div>
+        <div class="match-results" id="match-results" aria-live="polite"></div>
+      </section>
+      <p class="assistant-disclaimer">This assistant is informational. It does not make hiring decisions, store pasted job descriptions or represent unsupported experience. Confirm material details directly with Utpal.</p>
+    </div>
+  </aside>
 
   <aside class="consent-banner glass" id="analytics-consent" hidden aria-labelledby="consent-title">
     <div><strong id="consent-title">Privacy-friendly analytics</strong><p>With your permission, anonymous engagement data helps improve this portfolio. No advertising profiles are used.</p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy information ↗</a></div>
