@@ -37,7 +37,7 @@
     const ranked=answers.map(answer=>({answer,score:answer.terms.reduce((n,term)=>n+(normal.includes(term)?1:0),0)})).sort((a,b)=>b.score-a.score);
     return ranked[0].score?ranked[0].answer.reply():"I can answer from Utpal’s approved public profile. Try asking about his current role, forecasting, SQL, machine learning, sustainability, projects, education or stakeholder experience. You can also paste a job description in “Match a job”.";
   };
-  form?.addEventListener("submit",event=>{event.preventDefault();const query=input.value.trim().slice(0,500);if(!query)return;addMessage(query,"user");input.value="";window.setTimeout(()=>addMessage(respond(query)),160);sendEvent("profile_question",{topic:query.toLowerCase().split(/\s+/).slice(0,4).join("_")})});
+  form?.addEventListener("submit",event=>{event.preventDefault();const query=input.value.trim().slice(0,500);if(!query)return;addMessage(query,"user");input.value="";window.setTimeout(()=>addMessage(respond(query)),160);sendEvent("profile_question")});
   suggestions?.addEventListener("click",event=>{const button=event.target.closest("button[data-question]");if(!button)return;input.value=button.dataset.question;form.requestSubmit()});
   jdInput?.addEventListener("input",()=>{jdCount.textContent=jdInput.value.length.toLocaleString()+" / 12,000"});
   clear?.addEventListener("click",()=>{jdInput.value="";jdCount.textContent="0 / 12,000";results.replaceChildren();jdInput.focus()});
