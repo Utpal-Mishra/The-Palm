@@ -7,6 +7,7 @@
 .case-study-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin-top:2rem}
 .case-study{padding:1.75rem;display:flex;flex-direction:column;gap:1rem;min-height:100%}
 .case-study-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font:600 .78rem/1.2 "Manrope",sans-serif}
+.case-study-top>span:last-child{flex:0 0 3rem;width:3rem;height:3rem;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:rgba(7,17,13,.48);color:var(--green);font:700 1.12rem/1 "Manrope",sans-serif}
 .case-study h3,.supporting-heading h3,.building-section h3,.credibility-card h3{font-family:"Manrope",sans-serif;margin:0;color:var(--text)}
 .case-study h3{font-size:1.55rem}
 .case-study dl{display:grid;gap:.85rem;margin:0}
