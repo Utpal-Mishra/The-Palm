@@ -30,7 +30,7 @@
     {terms:["education","msc","university","degree"],reply:()=> "Utpal holds an MSc in Data & Computational Science from University College Dublin, covering mathematical modelling, scientific computing and optimal-control research."},
     {terms:["project","portfolio","nexus","swasthya","automation ecosystem"],reply:()=> "Selected public projects:\n\n"+profile.projects.map(p=>"• "+p.name+" — "+p.status+": "+p.detail).join("\n")},
     {terms:["skill","technology","stack","tools"],reply:()=> "Curated capabilities include:\n\n"+profile.capabilities.join(" · ")},
-    {terms:["location","ireland","cork","remote","availability"],reply:()=> "Utpal is based in Cork, Ireland and is open to relevant Ireland-based and remote conversations in data science, applied AI, decision intelligence and sustainability analytics."},
+    {terms:["location","ireland","cork","remote","availability"],reply:()=> "Utpal is based in Dublin, Ireland and is open to relevant Ireland-based and remote conversations in data science, applied AI, decision intelligence and sustainability analytics."},
     {terms:["contact","email","cv","resume","résumé"],reply:()=> "You can contact Utpal through the portfolio contact form or LinkedIn. To assess a role first, open “Match a job” and paste the job description."},
     {terms:["who","about","summary","tell me"],reply:()=> profile.identity.headline+"\n\nHis work connects "+profile.identity.positioning.join(", ")+"."}
   ];

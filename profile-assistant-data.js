@@ -2,7 +2,7 @@ window.THE_PALM_PROFILE = Object.freeze({
   identity: {
     name: "Utpal Mishra",
     headline: "Data Scientist building AI, analytics and automation products for operational, commercial and sustainability decisions.",
-    location: "Cork, Ireland",
+    location: "Dublin, Ireland",
     positioning: ["Applied data science and machine learning","Automation and decision intelligence","Sustainability and operational reporting"]
   },
   experience: [
