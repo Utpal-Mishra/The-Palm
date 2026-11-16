@@ -115,3 +115,54 @@ const sectionAnalyticsObserver=new IntersectionObserver(entries=>entries.forEach
  if(entry.isIntersecting) trackEvent("view_section",{section:entry.target.id});
 }),{threshold:.55});
 sections.forEach(section=>sectionAnalyticsObserver.observe(section));
+
+
+// Profile-led data-to-decision system map.
+const decisionFlow=document.getElementById("decision-flow");
+if(decisionFlow){
+ const flowNodes=[...decisionFlow.querySelectorAll(".flow-node")];
+ const flowStatus=document.getElementById("flow-status");
+ const flowReadout=document.getElementById("flow-readout");
+ const flowStates=[
+  ["Connecting trusted sources","Source connections verified"],
+  ["Standardising the workflow","Transformations and controls active"],
+  ["Generating decision evidence","Forecasts and signals evaluated"],
+  ["Delivering an actionable output","Decision-ready insight published"]
+ ];
+ let flowIndex=0;
+ let flowTimer;
+ const setFlowStep=index=>{
+  flowIndex=index%flowNodes.length;
+  flowNodes.forEach((node,nodeIndex)=>{
+   const active=nodeIndex===flowIndex;
+   node.classList.toggle("active",active);
+   if(active) node.setAttribute("aria-current","step"); else node.removeAttribute("aria-current");
+  });
+  flowStatus.textContent=flowStates[flowIndex][0];
+  flowReadout.textContent=flowStates[flowIndex][1];
+ };
+ const startFlow=()=>{
+  if(reduced||flowTimer) return;
+  flowTimer=window.setInterval(()=>setFlowStep(flowIndex+1),1800);
+ };
+ const stopFlow=()=>{if(flowTimer){window.clearInterval(flowTimer);flowTimer=undefined}};
+ flowNodes.forEach((node,index)=>node.addEventListener("pointerenter",()=>{stopFlow();setFlowStep(index)}));
+ decisionFlow.addEventListener("pointerleave",()=>{decisionFlow.style.setProperty("--flow-rx","0deg");decisionFlow.style.setProperty("--flow-ry","0deg");startFlow()});
+ if(!reduced){
+  let tiltFrame;
+  decisionFlow.addEventListener("pointermove",event=>{
+   if(tiltFrame) return;
+   tiltFrame=window.requestAnimationFrame(()=>{
+    const bounds=decisionFlow.getBoundingClientRect();
+    const x=(event.clientX-bounds.left)/bounds.width-.5;
+    const y=(event.clientY-bounds.top)/bounds.height-.5;
+    decisionFlow.style.setProperty("--flow-rx",(-y*1.4).toFixed(2)+"deg");
+    decisionFlow.style.setProperty("--flow-ry",(x*1.8).toFixed(2)+"deg");
+    tiltFrame=undefined;
+   });
+  });
+  document.addEventListener("visibilitychange",()=>{if(document.hidden)stopFlow();else startFlow()});
+ }
+ setFlowStep(0);
+ startFlow();
+}
