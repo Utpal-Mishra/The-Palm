@@ -140,18 +140,20 @@ body{
   margin-bottom: 1.5rem;
 }
 
+.writing-entry,
 .writing-topics {
   margin: 0 0 1.5rem;
 }
 
-.writing-topics a:hover,
-.writing-topics a:focus-visible {
+.writing-section .tag:hover,
+.writing-section .tag:focus-visible {
   color: var(--green);
   border-color: var(--green);
 }
 
-.writing-topic h3 {
-  margin-top: 0;
+.writing-topic h4 {
+  margin: 0;
+  font: 700 clamp(1.35rem, 2.5vw, 2rem) Manrope, sans-serif;
 }
 
 .writing-topic .writing-posts {
@@ -165,7 +167,7 @@ body{
   border-top: 1px solid var(--line);
 }
 
-.writing-posts h4 {
+.writing-posts h5 {
   margin: 0;
   font-size: 1rem;
 }
@@ -196,5 +198,170 @@ body{
 @media (max-width: 360px) {
   .dock a {
     min-width: 44px;
+  }
+}
+
+.writing-lifecycle,
+.writing-topic-browser {
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.writing-lifecycle > h3,
+.writing-topic-browser > h3,
+.lifecycle-example > h4 {
+  margin: 0 0 1rem;
+  font: 700 clamp(1.4rem, 3vw, 2rem)/1.2 Manrope, sans-serif;
+}
+
+.lifecycle-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lifecycle-flow li {
+  position: relative;
+}
+
+.lifecycle-flow a {
+  display: grid;
+  align-content: start;
+  gap: .35rem;
+  height: 100%;
+  padding: .9rem;
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  background: var(--surface);
+}
+
+.lifecycle-flow a:hover,
+.lifecycle-flow a:focus-visible {
+  border-color: var(--green);
+  background: var(--surface-strong);
+}
+
+.lifecycle-flow strong {
+  color: var(--green);
+  font-family: Manrope, sans-serif;
+}
+
+.lifecycle-flow a span {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.lifecycle-arrow::after {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 1.25rem;
+  transform: translateY(-50%);
+  color: var(--green);
+  text-align: center;
+  content: "→";
+}
+
+.lifecycle-loop {
+  display: block;
+  margin: .5rem .85rem 0;
+  padding: .35rem .75rem;
+  border: 1px dashed var(--line);
+  border-top: 0;
+  border-radius: 0 0 .75rem .75rem;
+  color: var(--green);
+  text-align: center;
+  font-size: .85rem;
+}
+
+.lifecycle-guidance {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .85rem;
+  margin: 1.4rem 0;
+}
+
+.lifecycle-stage,
+.lifecycle-example {
+  padding: 1rem clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+}
+
+.lifecycle-stage:last-child {
+  grid-column: 1 / -1;
+}
+
+.lifecycle-stage h4,
+.lifecycle-stage p,
+.lifecycle-example p {
+  margin: 0 0 .45rem;
+}
+
+.lifecycle-stage p,
+.lifecycle-example p {
+  color: var(--muted);
+}
+
+.lifecycle-stage ul {
+  margin: .65rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.lifecycle-stage .lifecycle-related {
+  margin: .65rem 0 0;
+  font-size: .85rem;
+}
+
+.lifecycle-example {
+  background: var(--surface);
+}
+
+.lifecycle-example ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.lifecycle-example li::marker {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.lifecycle-stage a,
+.lifecycle-example a,
+.lifecycle-loop:hover {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.lifecycle-stage:target,
+.writing-posts li:target {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .lifecycle-flow,
+  .lifecycle-guidance,
+  .lifecycle-example ol {
+    grid-template-columns: 1fr;
+  }
+
+  .lifecycle-arrow::after {
+    top: 100%;
+    left: 1rem;
+    transform: none;
+    line-height: 1.25rem;
+    content: "↓";
+  }
+
+  .lifecycle-loop {
+    margin-inline: 0;
   }
 }
