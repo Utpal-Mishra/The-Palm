@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="home.css?v=20261119-2">
+  <link rel="stylesheet" href="home.css?v=20261119-3">
   <link rel="stylesheet" href="chatbot.css?v=20261018-2">
+  <script src="writing.js?v=20261119-1" defer></script>
   <script src="app.js?v=20261116-1" defer></script>
   <script src="profile-assistant-data.js?v=20261119-1" defer></script>
   <script src="chatbot.js?v=20261119-1" defer></script>
@@ -207,75 +208,97 @@
         <a class="tag" href="#writing-by-topic">Browse by topic</a>
       </nav>
       <div class="writing-lifecycle" id="writing-lifecycle" tabindex="-1">
-        <h3>Follow the lifecycle</h3>
+        <h3>Follow a data packet</h3>
         <nav aria-label="Data product lifecycle diagram">
           <ol class="lifecycle-flow" role="list">
             <li><span class="lifecycle-arrow" aria-hidden="true"></span>
-              <a href="#lifecycle-frame"><strong>Frame the decision</strong><span>What should change?</span></a>
+              <a href="#lifecycle-frame" aria-label="Frame the decision"><strong>Frame</strong></a>
             </li>
             <li><span class="lifecycle-arrow" aria-hidden="true"></span>
-              <a href="#lifecycle-prepare"><strong>Prepare the data</strong><span>What can we access and trust?</span></a>
+              <a href="#lifecycle-prepare" aria-label="Prepare the data"><strong>Prepare</strong></a>
             </li>
             <li><span class="lifecycle-arrow" aria-hidden="true"></span>
-              <a href="#lifecycle-design"><strong>Design the solution</strong><span>Where and how should it work?</span></a>
+              <a href="#lifecycle-design" aria-label="Design the solution"><strong>Design</strong></a>
             </li>
             <li><span class="lifecycle-arrow" aria-hidden="true"></span>
-              <a href="#lifecycle-test"><strong>Test the evidence</strong><span>What would justify acting?</span></a>
+              <a href="#lifecycle-test" aria-label="Test the evidence"><strong>Test</strong></a>
             </li>
             <li>
-              <a href="#lifecycle-learn"><strong>Act and learn</strong><span>What changed, and what can we prove?</span></a>
+              <a href="#lifecycle-learn" aria-label="Act and learn"><strong>Learn</strong></a>
             </li>
           </ol>
           <a class="lifecycle-loop" href="#lifecycle-frame"><span aria-hidden="true">↶</span> Results shape the next decision</a>
         </nav>
-        <div class="lifecycle-guidance">
-          <article class="lifecycle-stage" id="lifecycle-frame" tabindex="-1">
-            <h4>Frame the decision</h4>
-            <p>Name the decision owner, the action they could take, and the outcome that would justify a change.</p>
-            <ul>
-              <li><a href="#post-frame-the-decision">Start with the decision before choosing the model</a></li>
-            </ul>
-          </article>
-          <article class="lifecycle-stage" id="lifecycle-prepare" tabindex="-1">
-            <h4>Prepare the data</h4>
-            <p>Find out what teams already collect, who can use it, and how each product is identified across systems.</p>
-            <ul>
-              <li><a href="#post-reuse-product-data">Why product teams keep collecting the same data</a></li>
-              <li><a href="#post-product-passport-registry">What the EU Digital Product Passport Registry means for product teams</a></li>
-              <li><a href="#post-connected-product-data">Designing connected products for data access</a></li>
-            </ul>
-            <p class="lifecycle-related"><a href="#post-reporting-evidence">Plan how to retain reporting evidence</a></p>
-          </article>
-          <article class="lifecycle-stage" id="lifecycle-design" tabindex="-1">
-            <h4>Design the solution</h4>
-            <p>Choose where processing happens, what it takes to complete the workflow, and when a person needs to step in.</p>
-            <ul>
-              <li><a href="#post-ai-at-the-edge">When should AI run at the edge?</a></li>
-              <li><a href="#post-shopping-workflow">From a shopping recommendation to a completed task</a></li>
-              <li><a href="#post-ai-literacy-by-role">What does AI literacy look like by role?</a></li>
-            </ul>
-            <p class="lifecycle-related"><a href="#post-ai-infrastructure-cost">Consider infrastructure cost before choosing where to run AI</a></p>
-          </article>
-          <article class="lifecycle-stage" id="lifecycle-test" tabindex="-1">
-            <h4>Test the evidence</h4>
-            <p>Check whether the experiment fits the decision and whether the agent took sensible steps to reach its answer.</p>
-            <ul>
-              <li><a href="#post-marketing-experiment">From an experiment to a marketing mix model</a></li>
-              <li><a href="#post-evaluate-ai-agents">How should we evaluate AI agents?</a></li>
-            </ul>
-          </article>
-          <article class="lifecycle-stage" id="lifecycle-learn" tabindex="-1">
-            <h4>Act and learn</h4>
-            <p>Record what people did, what changed, what it cost to run, and what evidence you can reconstruct later.</p>
-            <ul>
-              <li><a href="#post-marketing-budget">Why a strong model can still leave the budget unchanged</a></li>
-              <li><a href="#post-ai-infrastructure-cost">Measuring the infrastructure cost of AI</a></li>
-              <li><a href="#post-reporting-evidence">What evidence should automated reporting keep?</a></li>
-            </ul>
-          </article>
+        <div class="lifecycle-scene">
+          <div class="courier-scene" data-stage="frame" aria-hidden="true">
+            <div class="courier-orbit"></div>
+            <div class="courier">
+              <span class="courier-fin courier-fin-left"></span>
+              <span class="courier-fin courier-fin-right"></span>
+              <span class="courier-shell">
+                <span class="courier-visor"><i></i><i></i></span>
+                <span class="courier-status"></span>
+              </span>
+            </div>
+            <div class="courier-packet">
+              <span class="packet-frame">?</span>
+              <span class="packet-prepare">▤</span>
+              <span class="packet-design">◇</span>
+              <span class="packet-test">✓</span>
+              <span class="packet-learn">↻</span>
+            </div>
+            <div class="courier-shadow"></div>
+          </div>
+          <div class="lifecycle-guidance">
+            <article class="lifecycle-stage" id="lifecycle-frame" tabindex="-1">
+              <h4>What should change?</h4>
+              <p>Name the decision owner, the action they could take, and the outcome that would justify a change.</p>
+              <ul>
+                <li><a href="#post-frame-the-decision">Start with the decision before choosing the model</a></li>
+              </ul>
+            </article>
+            <article class="lifecycle-stage" id="lifecycle-prepare" tabindex="-1">
+              <h4>What can we access and trust?</h4>
+              <p>Find out what teams already collect, who can use it, and how each product is identified across systems.</p>
+              <ul>
+                <li><a href="#post-reuse-product-data">Why product teams keep collecting the same data</a></li>
+                <li><a href="#post-product-passport-registry">What the EU Digital Product Passport Registry means for product teams</a></li>
+                <li><a href="#post-connected-product-data">Designing connected products for data access</a></li>
+              </ul>
+              <p class="lifecycle-related"><a href="#post-reporting-evidence">Plan how to retain reporting evidence</a></p>
+            </article>
+            <article class="lifecycle-stage" id="lifecycle-design" tabindex="-1">
+              <h4>Where and how should it work?</h4>
+              <p>Choose where processing happens, what it takes to complete the workflow, and when a person needs to step in.</p>
+              <ul>
+                <li><a href="#post-ai-at-the-edge">When should AI run at the edge?</a></li>
+                <li><a href="#post-shopping-workflow">From a shopping recommendation to a completed task</a></li>
+                <li><a href="#post-ai-literacy-by-role">What does AI literacy look like by role?</a></li>
+              </ul>
+              <p class="lifecycle-related"><a href="#post-ai-infrastructure-cost">Consider infrastructure cost before choosing where to run AI</a></p>
+            </article>
+            <article class="lifecycle-stage" id="lifecycle-test" tabindex="-1">
+              <h4>What would justify acting?</h4>
+              <p>Check whether the experiment fits the decision and whether the agent took sensible steps to reach its answer.</p>
+              <ul>
+                <li><a href="#post-marketing-experiment">From an experiment to a marketing mix model</a></li>
+                <li><a href="#post-evaluate-ai-agents">How should we evaluate AI agents?</a></li>
+              </ul>
+            </article>
+            <article class="lifecycle-stage" id="lifecycle-learn" tabindex="-1">
+              <h4>What changed, and what can we prove?</h4>
+              <p>Record what people did, what changed, what it cost to run, and what evidence you can reconstruct later.</p>
+              <ul>
+                <li><a href="#post-marketing-budget">Why a strong model can still leave the budget unchanged</a></li>
+                <li><a href="#post-ai-infrastructure-cost">Measuring the infrastructure cost of AI</a></li>
+                <li><a href="#post-reporting-evidence">What evidence should automated reporting keep?</a></li>
+              </ul>
+            </article>
+          </div>
         </div>
-        <div class="lifecycle-example">
-          <h4>Should we move the marketing budget?</h4>
+        <p class="writing-source" id="lifecycle-announcement" role="status"></p>
+        <details class="lifecycle-example">
+          <summary>Worked example · Should we move the marketing budget?</summary>
           <ol>
             <li>
               <strong>Frame the decision</strong>
@@ -293,7 +316,7 @@
               <a href="#post-marketing-budget">Why a strong model can still leave the budget unchanged</a>
             </li>
           </ol>
-        </div>
+        </details>
       </div>
       <div class="writing-topic-browser" id="writing-by-topic" tabindex="-1">
         <h3>Browse by topic</h3>
@@ -307,81 +330,96 @@
         <div class="project-grid">
           <article class="project glass writing-topic" id="writing-ai-evaluation" tabindex="-1">
             <h4>AI evaluation and oversight</h4>
-            <p>How do we judge an agent’s behaviour, and what do the people supervising it need to understand?</p>
-            <ul class="writing-posts" role="list">
-              <li id="post-evaluate-ai-agents" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_agenticai-aievaluation-responsibleai-activity-7492953211490983936-7HrP" target="_blank" rel="noopener">How should we evaluate AI agents?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>A correct answer can hide a poor choice of tools or data. What should an evaluation capture about how the agent got there?</p>
-              </li>
-              <li id="post-ai-literacy-by-role" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_responsibleai-ailiteracy-aileadership-activity-7493648085080883202-yiLQ" target="_blank" rel="noopener">What does AI literacy look like by role?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>Using AI to summarise a document and supervising an AI-assisted customer decision call for different skills.</p>
-              </li>
-            </ul>
+            <details>
+              <summary>2 posts</summary>
+              <p>How do we judge an agent’s behaviour, and what do the people supervising it need to understand?</p>
+              <ul class="writing-posts" role="list">
+                <li id="post-evaluate-ai-agents" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_agenticai-aievaluation-responsibleai-activity-7492953211490983936-7HrP" target="_blank" rel="noopener">How should we evaluate AI agents?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>A correct answer can hide a poor choice of tools or data. What should an evaluation capture about how the agent got there?</p>
+                </li>
+                <li id="post-ai-literacy-by-role" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_responsibleai-ailiteracy-aileadership-activity-7493648085080883202-yiLQ" target="_blank" rel="noopener">What does AI literacy look like by role?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>Using AI to summarise a document and supervising an AI-assisted customer decision call for different skills.</p>
+                </li>
+              </ul>
+            </details>
           </article>
           <article class="project glass writing-topic" id="writing-marketing-measurement" tabindex="-1">
             <h4>Marketing measurement</h4>
-            <p>How do we turn experimental evidence into model inputs and model outputs into budget decisions?</p>
-            <ul class="writing-posts" role="list">
-              <li id="post-marketing-experiment" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_mmm-experimentation-datascience-activity-7511427744249827328-owis" target="_blank" rel="noopener">From an experiment to a marketing mix model<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>Why the timing, spend and conditions of an experiment matter when translating its result into an ROI prior.</p>
-              </li>
-              <li id="post-marketing-budget" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_marketinganalytics-mmm-datastrategy-activity-7512834937868431360-H25Y" target="_blank" rel="noopener">Why a strong model can still leave the budget unchanged<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>What has to happen between a marketing measurement result and someone acting on it?</p>
-              </li>
-            </ul>
+            <details>
+              <summary>2 posts</summary>
+              <p>How do we turn experimental evidence into model inputs and model outputs into budget decisions?</p>
+              <ul class="writing-posts" role="list">
+                <li id="post-marketing-experiment" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_mmm-experimentation-datascience-activity-7511427744249827328-owis" target="_blank" rel="noopener">From an experiment to a marketing mix model<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>Why the timing, spend and conditions of an experiment matter when translating its result into an ROI prior.</p>
+                </li>
+                <li id="post-marketing-budget" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_marketinganalytics-mmm-datastrategy-activity-7512834937868431360-H25Y" target="_blank" rel="noopener">Why a strong model can still leave the budget unchanged<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>What has to happen between a marketing measurement result and someone acting on it?</p>
+                </li>
+              </ul>
+            </details>
           </article>
           <article class="project glass writing-topic" id="writing-product-data" tabindex="-1">
             <h4>Product data and access</h4>
-            <p>Who can use product data, and how can teams maintain it across reporting, regulation and services?</p>
-            <ul class="writing-posts" role="list">
-              <li id="post-reuse-product-data" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_datagovernance-sustainableproducts-productstrategy-activity-7491776806354845696-TSM0" target="_blank" rel="noopener">Why product teams keep collecting the same data<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>How shared upstream product data can support sustainability reporting, compliance and technical documentation.</p>
-              </li>
-              <li id="post-product-passport-registry" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_digitalproductpassport-productdata-sustainability-activity-7496089798223392768-h3sz" target="_blank" rel="noopener">What the EU Digital Product Passport Registry means for product teams<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>A look at what the registry changes for teams working on product identity and traceability.</p>
-              </li>
-              <li id="post-connected-product-data" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_productdata-datastrategy-connectedproducts-activity-7499153624573386752-hxw-" target="_blank" rel="noopener">Designing connected products for data access<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>How user access to product-generated data can affect maintenance, repair and independent services.</p>
-              </li>
-            </ul>
+            <details>
+              <summary>3 posts</summary>
+              <p>Who can use product data, and how can teams maintain it across reporting, regulation and services?</p>
+              <ul class="writing-posts" role="list">
+                <li id="post-reuse-product-data" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_datagovernance-sustainableproducts-productstrategy-activity-7491776806354845696-TSM0" target="_blank" rel="noopener">Why product teams keep collecting the same data<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>How shared upstream product data can support sustainability reporting, compliance and technical documentation.</p>
+                </li>
+                <li id="post-product-passport-registry" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_digitalproductpassport-productdata-sustainability-activity-7496089798223392768-h3sz" target="_blank" rel="noopener">What the EU Digital Product Passport Registry means for product teams<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>A look at what the registry changes for teams working on product identity and traceability.</p>
+                </li>
+                <li id="post-connected-product-data" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_productdata-datastrategy-connectedproducts-activity-7499153624573386752-hxw-" target="_blank" rel="noopener">Designing connected products for data access<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>How user access to product-generated data can affect maintenance, repair and independent services.</p>
+                </li>
+              </ul>
+            </details>
           </article>
           <article class="project glass writing-topic" id="writing-decision-workflows" tabindex="-1">
             <h4>Decision workflows and evidence</h4>
-            <p>What does a data product need to support before and after someone takes action?</p>
-            <ul class="writing-posts" role="list">
-              <li id="post-frame-the-decision" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_im-becoming-more-aware-of-how-easy-it-is-activity-7509993990302187520-eOsY" target="_blank" rel="noopener">Start with the decision before choosing the model<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>A practical way to work backwards from the outcome through the workflow to the technology it needs.</p>
-              </li>
-              <li id="post-shopping-workflow" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_productstrategy-ai-retailtechnology-activity-7511778692273221633-EVrR" target="_blank" rel="noopener">From a shopping recommendation to a completed task<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>What conversational shopping needs from product data, inventory, pricing and checkout.</p>
-              </li>
-              <li id="post-reporting-evidence" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_buildinpublic-dataautomation-datagovernance-activity-7496916138149249024-7tNf" target="_blank" rel="noopener">What evidence should automated reporting keep?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>How to explain a reported number months later, after source data and business rules have changed.</p>
-              </li>
-            </ul>
+            <details>
+              <summary>3 posts</summary>
+              <p>What does a data product need to support before and after someone takes action?</p>
+              <ul class="writing-posts" role="list">
+                <li id="post-frame-the-decision" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_im-becoming-more-aware-of-how-easy-it-is-activity-7509993990302187520-eOsY" target="_blank" rel="noopener">Start with the decision before choosing the model<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>A practical way to work backwards from the outcome through the workflow to the technology it needs.</p>
+                </li>
+                <li id="post-shopping-workflow" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_productstrategy-ai-retailtechnology-activity-7511778692273221633-EVrR" target="_blank" rel="noopener">From a shopping recommendation to a completed task<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>What conversational shopping needs from product data, inventory, pricing and checkout.</p>
+                </li>
+                <li id="post-reporting-evidence" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_buildinpublic-dataautomation-datagovernance-activity-7496916138149249024-7tNf" target="_blank" rel="noopener">What evidence should automated reporting keep?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>How to explain a reported number months later, after source data and business rules have changed.</p>
+                </li>
+              </ul>
+            </details>
           </article>
           <article class="project glass writing-topic" id="writing-ai-infrastructure" tabindex="-1">
             <h4>AI infrastructure</h4>
-            <p>Where should AI run, and what should we measure about the infrastructure behind it?</p>
-            <ul class="writing-posts" role="list">
-              <li id="post-ai-at-the-edge" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_edgeai-datastrategy-producttechnology-activity-7508113446492729344-q0Or" target="_blank" rel="noopener">When should AI run at the edge?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>How latency, connectivity and the point of action shape the choice between local and cloud processing.</p>
-              </li>
-              <li id="post-ai-infrastructure-cost" tabindex="-1">
-                <h5><a href="https://www.linkedin.com/posts/utpal-mishra_responsibleai-datastrategy-sustainabletechnology-activity-7508831784365703168-X0qw" target="_blank" rel="noopener">Measuring the infrastructure cost of AI<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
-                <p>Why data-centre energy and water use belong in the conversation about scaling AI.</p>
-              </li>
-            </ul>
+            <details>
+              <summary>2 posts</summary>
+              <p>Where should AI run, and what should we measure about the infrastructure behind it?</p>
+              <ul class="writing-posts" role="list">
+                <li id="post-ai-at-the-edge" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_edgeai-datastrategy-producttechnology-activity-7508113446492729344-q0Or" target="_blank" rel="noopener">When should AI run at the edge?<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>How latency, connectivity and the point of action shape the choice between local and cloud processing.</p>
+                </li>
+                <li id="post-ai-infrastructure-cost" tabindex="-1">
+                  <h5><a href="https://www.linkedin.com/posts/utpal-mishra_responsibleai-datastrategy-sustainabletechnology-activity-7508831784365703168-X0qw" target="_blank" rel="noopener">Measuring the infrastructure cost of AI<span class="writing-source"> on LinkedIn</span><span aria-hidden="true"> ↗</span></a></h5>
+                  <p>Why data-centre energy and water use belong in the conversation about scaling AI.</p>
+                </li>
+              </ul>
+            </details>
           </article>
         </div>
       </div>

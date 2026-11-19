@@ -207,8 +207,7 @@ body{
 }
 
 .writing-lifecycle > h3,
-.writing-topic-browser > h3,
-.lifecycle-example > h4 {
+.writing-topic-browser > h3 {
   margin: 0 0 1rem;
   font: 700 clamp(1.4rem, 3vw, 2rem)/1.2 Manrope, sans-serif;
 }
@@ -228,17 +227,18 @@ body{
 
 .lifecycle-flow a {
   display: grid;
-  align-content: start;
-  gap: .35rem;
+  min-height: 44px;
+  place-items: center;
   height: 100%;
-  padding: .9rem;
+  padding: .5rem .3rem;
   border: 1px solid var(--line);
-  border-radius: .9rem;
+  border-radius: .75rem;
   background: var(--surface);
 }
 
 .lifecycle-flow a:hover,
-.lifecycle-flow a:focus-visible {
+.lifecycle-flow a:focus-visible,
+.lifecycle-flow a[aria-current="step"] {
   border-color: var(--green);
   background: var(--surface-strong);
 }
@@ -246,11 +246,6 @@ body{
 .lifecycle-flow strong {
   color: var(--green);
   font-family: Manrope, sans-serif;
-}
-
-.lifecycle-flow a span {
-  color: var(--muted);
-  font-size: .85rem;
 }
 
 .lifecycle-arrow::after {
@@ -276,22 +271,30 @@ body{
   font-size: .85rem;
 }
 
-.lifecycle-guidance {
+.lifecycle-scene {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .85rem;
-  margin: 1.4rem 0;
+  grid-template-columns: minmax(12rem, .75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin: 1rem 0;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(125deg, rgba(120, 230, 170, .1), var(--surface));
 }
 
-.lifecycle-stage,
 .lifecycle-example {
-  padding: 1rem clamp(1rem, 2vw, 1.5rem);
+  padding: .9rem 1rem;
   border: 1px solid var(--line);
   border-radius: 1rem;
 }
 
-.lifecycle-stage:last-child {
-  grid-column: 1 / -1;
+.lifecycle-stage:not([hidden]) + .lifecycle-stage:not([hidden]) {
+  margin-top: 1.25rem;
+}
+
+.lifecycle-stage h4 {
+  font: 700 clamp(1.2rem, 2.5vw, 1.65rem)/1.2 Manrope, sans-serif;
 }
 
 .lifecycle-stage h4,
@@ -319,11 +322,22 @@ body{
   background: var(--surface);
 }
 
+.lifecycle-example > summary,
+.writing-topic summary {
+  color: var(--green);
+  cursor: pointer;
+  font: 700 .95rem/1.45 Manrope, sans-serif;
+}
+
+.writing-topic details {
+  margin-top: .8rem;
+}
+
 .lifecycle-example ol {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
-  margin: 0;
+  margin: 1rem 0 0;
   padding-left: 1.25rem;
 }
 
@@ -346,22 +360,177 @@ body{
   outline-offset: 4px;
 }
 
+/* The courier carries a different packet at each stage. */
+.courier-scene {
+  --packet-color: var(--green);
+  position: relative;
+  display: grid;
+  min-height: 12.5rem;
+  grid-template-areas: "art";
+  place-items: center;
+  isolation: isolate;
+  border-radius: .85rem;
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(120, 230, 170, .15), transparent 62%),
+    radial-gradient(circle, rgba(120, 230, 170, .2) 1px, transparent 1px) center / 18px 18px;
+}
+
+.courier-scene[data-stage="prepare"] { --packet-color: #8ce2c5; }
+.courier-scene[data-stage="design"] { --packet-color: #c8f56b; }
+.courier-scene[data-stage="test"] { --packet-color: #f2d58b; }
+.courier-scene[data-stage="learn"] { --packet-color: #99e8ae; }
+
+.courier-orbit,
+.courier,
+.courier-packet,
+.courier-shadow {
+  grid-area: art;
+}
+
+.courier-orbit {
+  width: 10rem;
+  height: 8rem;
+  transform: rotate(-24deg);
+  border: 1px dashed rgba(120, 230, 170, .42);
+  border-radius: 50%;
+}
+
+.courier {
+  position: relative;
+  z-index: 1;
+  width: 6.8rem;
+  height: 5.2rem;
+  margin: -.6rem 1.2rem 0 0;
+  animation: courier-hover 1.8s ease-in-out 2;
+}
+
+.courier-shell {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #baf7d3;
+  border-radius: 2.1rem 2.1rem 2.55rem 2.55rem;
+  background: linear-gradient(150deg, #ecf9df 4%, #83e7ab 57%, #309e68);
+  box-shadow: inset 0 -5px rgba(12, 57, 41, .2), 0 12px 24px rgba(1, 15, 8, .45);
+}
+
+.courier-fin {
+  position: absolute;
+  top: 2.1rem;
+  width: 1.3rem;
+  height: 1.45rem;
+  border: 1px solid rgba(186, 247, 211, .6);
+  border-radius: .7rem;
+  background: #2a7853;
+}
+
+.courier-fin-left { left: -.7rem; transform: rotate(27deg); }
+.courier-fin-right { right: -.7rem; transform: rotate(-27deg); }
+
+.courier-visor {
+  display: flex;
+  width: 5.15rem;
+  height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: -.4rem;
+  border: 1px solid #359369;
+  border-radius: 1.15rem;
+  background: #09261b;
+  box-shadow: inset 0 0 12px #0b4732;
+}
+
+.courier-visor i {
+  width: .4rem;
+  height: .73rem;
+  border-radius: 1rem;
+  background: #a7ffc7;
+  box-shadow: 0 0 9px #6ee79f;
+}
+
+.courier-status {
+  position: absolute;
+  bottom: .65rem;
+  width: .95rem;
+  height: .2rem;
+  border-radius: 1rem;
+  background: #256b48;
+}
+
+.courier-packet {
+  z-index: 2;
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  place-items: center;
+  transform: translate(3.55rem, -1.85rem) rotate(10deg);
+  border: 1px solid var(--packet-color);
+  border-radius: .65rem;
+  color: var(--packet-color);
+  background: #0d2c20;
+  box-shadow: 0 0 20px rgba(120, 230, 170, .28);
+  font: 800 1.25rem/1 Manrope, sans-serif;
+}
+
+.courier-packet span { display: none; }
+[data-stage="frame"] .packet-frame,
+[data-stage="prepare"] .packet-prepare,
+[data-stage="design"] .packet-design,
+[data-stage="test"] .packet-test,
+[data-stage="learn"] .packet-learn {
+  display: block;
+  animation: courier-deliver .3s ease-out;
+}
+
+.courier-shadow {
+  width: 5rem;
+  height: .65rem;
+  transform: translate(-.5rem, 3.2rem);
+  border-radius: 50%;
+  background: rgba(2, 15, 8, .65);
+  filter: blur(4px);
+}
+
+@keyframes courier-hover {
+  50% { transform: translateY(-.45rem); }
+}
+
+@keyframes courier-deliver {
+  from { opacity: .35; transform: translateY(.3rem) scale(.72); }
+}
+
 @media (max-width: 760px) {
-  .lifecycle-flow,
-  .lifecycle-guidance,
+  .lifecycle-scene,
   .lifecycle-example ol {
     grid-template-columns: 1fr;
   }
 
-  .lifecycle-arrow::after {
-    top: 100%;
-    left: 1rem;
-    transform: none;
-    line-height: 1.25rem;
-    content: "↓";
+  .courier-scene {
+    min-height: 8.5rem;
+  }
+
+  .lifecycle-flow {
+    gap: .3rem;
+  }
+
+  .lifecycle-flow a {
+    font-size: .77rem;
+  }
+
+  .lifecycle-arrow {
+    display: none;
   }
 
   .lifecycle-loop {
     margin-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .courier,
+  .courier-packet span {
+    animation: none;
   }
 }
