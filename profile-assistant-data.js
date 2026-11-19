@@ -6,7 +6,7 @@ window.THE_PALM_PROFILE = Object.freeze({
     positioning: ["Applied data science and machine learning","Automation and decision intelligence","Sustainability and operational reporting"]
   },
   experience: [
-    {organisation:"Logitech",role:"Data Scientist · Sustainability",period:"Present",summary:"Builds sustainability data products that connect fragmented sources, automate reporting, map product data and produce decision-ready insight.",evidence:[
+    {organisation:"Logitech",role:"Data Scientist · Sustainability",period:"December 2024 – October 2026",summary:"Built sustainability data products that connect fragmented sources, automate reporting, map product data and produce decision-ready insight.",evidence:[
       "Developed Python, Streamlit, API and Snowflake workflows for reporting and data integration.",
       "Reduced key reporting operations from manual effort to under five seconds.",
       "Worked across product mapping, stewardship reporting, forecasting and audit-ready evidence.",
@@ -45,7 +45,7 @@ window.THE_PALM_PROFILE = Object.freeze({
     {theme:"Machine learning",level:"strong",source:"Multiple roles",detail:"Delivered applied ML across forecasting, segmentation, NLP and computer vision projects.",keywords:["machine learning","ml","model","modelling","classification","regression"]},
     {theme:"Computer vision",level:"strong",source:"Deciphex",detail:"Built image-classification work reaching 98% accuracy on the project evaluation set.",keywords:["computer vision","image","images","classification","opencv","vision"]},
     {theme:"Marketing analytics",level:"strong",source:"Kellogg’s and Accenture / Meta",detail:"Experience across marketing-mix modelling, campaign analysis and EMEA client support.",keywords:["marketing","mmm","marketing mix","campaign","ads","advertising"]},
-    {theme:"Sustainability analytics",level:"strong",source:"Logitech",detail:"Builds sustainability reporting, stewardship, product-mapping and decision-support workflows.",keywords:["sustainability","esg","environmental","stewardship","epr","weee","circularity"]},
+    {theme:"Sustainability analytics",level:"strong",source:"Logitech",detail:"Built sustainability reporting, stewardship, product-mapping and decision-support workflows.",keywords:["sustainability","esg","environmental","stewardship","epr","weee","circularity"]},
     {theme:"Data visualisation and BI",level:"strong",source:"Multiple roles",detail:"Experience with Power BI, Tableau, Plotly and application-based analytical delivery.",keywords:["power bi","powerbi","tableau","visualisation","visualization","dashboard","reporting"]},
     {theme:"Stakeholder delivery",level:"strong",source:"Logitech and Accenture / Meta",detail:"Coordinated cross-functional technical teams and supported 60+ EMEA clients.",keywords:["stakeholder","communication","cross-functional","client","leadership","collaboration"]},
     {theme:"Data engineering foundations",level:"strong",source:"Logitech",detail:"Built multi-source ingestion, reusable transformations, validation and audit-ready data layers.",keywords:["etl","elt","pipeline","pipelines","data engineering","integration","data quality","governance"]},

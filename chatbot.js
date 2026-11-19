@@ -19,8 +19,9 @@
   const switchTab=name=>{tabs.forEach(tab=>tab.setAttribute("aria-selected",String(tab.dataset.tab===name)));views.forEach(view=>view.hidden=view.dataset.view!==name);if(name==="match")jdInput.focus();else input.focus();sendEvent("assistant_tab",{tab:name})};
   tabs.forEach(tab=>tab.addEventListener("click",()=>switchTab(tab.dataset.tab)));
   const bullets=items=>items.map(item=>"• "+item).join("\n");
+  const logitech=profile.experience[0];
   const answers=[
-    {terms:["current","logitech","sustainability"],reply:()=> "Utpal currently works as a Data Scientist in sustainability at Logitech.\n\n"+bullets(profile.experience[0].evidence)},
+    {terms:["logitech","sustainability","current role","current job","current employer","currently work","currently employed","most recent role","work now"],reply:()=> `Utpal’s most recent listed role was Data Scientist in sustainability at Logitech (${logitech.period}).\n\n`+bullets(logitech.evidence)},
     {terms:["forecast","time series","inventory","kellogg"],reply:()=> "His forecasting and supply-chain evidence includes:\n\n"+bullets(profile.experience[1].evidence)},
     {terms:["analytics","data analysis","business intelligence","insights"],reply:()=> "Utpal’s analytics experience spans sustainability reporting and product mapping at Logitech, forecasting and inventory optimisation at Kellogg’s, and SQL-led marketing analysis for 60+ EMEA clients at Accenture / Meta. His focus is turning fragmented data into reliable, decision-ready insight."},
     {terms:["open-source","open source","omdena","collaborative"],reply:()=> "Utpal’s public collaborative work includes Kesho AI, OpenDevEd, Climate Risk Prediction and Crop Disease Classification. These projects applied forecasting, geospatial analysis, environmental analytics and computer vision to social-impact problems."},
@@ -37,7 +38,7 @@
   const respond=query=>{
     const normal=" "+query.toLowerCase().replace(/[^a-z0-9+#.\s-]/g," ")+" ";
     const ranked=answers.map(answer=>({answer,score:answer.terms.reduce((n,term)=>n+(normal.includes(term)?1:0),0)})).sort((a,b)=>b.score-a.score);
-    return ranked[0].score?ranked[0].answer.reply():"I can answer from Utpal’s approved public profile. Try asking about his current role, forecasting, SQL, machine learning, sustainability, projects, education or stakeholder experience. You can also paste a job description in “Match a job”.";
+    return ranked[0].score?ranked[0].answer.reply():"I can answer from Utpal’s approved public profile. Try asking about his Logitech experience, forecasting, SQL, machine learning, sustainability, projects, education or stakeholder experience. You can also paste a job description in “Match a job”.";
   };
   form?.addEventListener("submit",event=>{event.preventDefault();const query=input.value.trim().slice(0,500);if(!query)return;addMessage(query,"user");input.value="";window.setTimeout(()=>addMessage(respond(query)),160);sendEvent("profile_question")});
   suggestions?.addEventListener("click",event=>{const button=event.target.closest("button[data-question]");if(!button)return;input.value=button.dataset.question;form.requestSubmit()});
