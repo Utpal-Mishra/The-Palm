@@ -135,3 +135,66 @@ body{
 @media(prefers-reduced-motion:reduce){
   .decision-flow.visible{transform:none}.flow-rail span{animation:none}.flow-node{transition:none}
 }
+
+.writing-section .section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.writing-topics {
+  margin: 0 0 1.5rem;
+}
+
+.writing-topics a:hover,
+.writing-topics a:focus-visible {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.writing-topic h3 {
+  margin-top: 0;
+}
+
+.writing-topic .writing-posts {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.writing-posts li {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.writing-posts h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.writing-posts a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.writing-posts p {
+  margin: .35rem 0 1rem;
+}
+
+.writing-posts li:last-child p {
+  margin-bottom: 0;
+}
+
+.writing-source {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+  .dock a {
+    min-width: 44px;
+  }
+}
