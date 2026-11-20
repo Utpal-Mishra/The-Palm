@@ -534,3 +534,158 @@ body{
     animation: none;
   }
 }
+
+/* Mobile viewport, typography and alignment hardening — 2026-11-20 */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .topbar {
+    gap: .65rem;
+    padding: .75rem;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .brand strong {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .brand small {
+    font-size: .62rem;
+    white-space: nowrap;
+  }
+
+  .top-actions {
+    flex: 0 0 auto;
+  }
+
+  .availability {
+    display: none !important;
+  }
+
+  .section {
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    padding: 4.75rem 0;
+  }
+
+  .hero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: 7.25rem;
+  }
+
+  .eyebrow,
+  .section-heading p {
+    font-size: .68rem;
+    line-height: 1.65;
+    letter-spacing: .13em;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    margin: 1rem 0 1.25rem;
+    font-size: clamp(2.75rem, 12.5vw, 3.75rem);
+    line-height: .99;
+    letter-spacing: -.045em;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-grid,
+  .about-copy,
+  .portrait-card,
+  .project-grid > *,
+  .contact-section > *,
+  .section-heading > * {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .about-grid {
+    gap: 2rem;
+  }
+
+  .portrait-card {
+    max-width: 100%;
+    margin: 0;
+    padding: .75rem;
+    transform: none;
+  }
+
+  .portrait-card img {
+    width: 100%;
+    aspect-ratio: 4 / 4.45;
+    object-position: center;
+  }
+
+  .about-copy .lead {
+    font-size: 1.25rem;
+    line-height: 1.45;
+  }
+
+  .about-copy p {
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+  }
+
+  .dock {
+    width: calc(100% - 1rem);
+    max-width: 32rem;
+    justify-content: space-between;
+  }
+
+  .dock a {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: .45rem .25rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .section {
+    width: calc(100% - 1.5rem);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 3.15rem);
+  }
+
+  .brand-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand small {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+}
