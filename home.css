@@ -689,3 +689,237 @@ img {
     font-size: 2.4rem;
   }
 }
+
+/* Public-safe project architecture views */
+.architecture-showcase {
+  margin-top: 3.5rem;
+}
+
+.architecture-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, .8fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 1.25rem;
+}
+
+.architecture-heading h3 {
+  margin: .25rem 0 0;
+  font: 700 clamp(1.45rem, 3vw, 2.15rem)/1.2 Manrope, sans-serif;
+}
+
+.architecture-heading > p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.architecture-grid {
+  display: grid;
+  gap: .85rem;
+}
+
+.architecture-card {
+  border-radius: 1.7rem;
+  overflow: hidden;
+}
+
+.architecture-card summary {
+  display: flex;
+  min-height: 5.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.35rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.architecture-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.architecture-card summary > span:first-child {
+  display: grid;
+  gap: .18rem;
+}
+
+.architecture-card summary small {
+  color: var(--green);
+  font: 700 .66rem/1.3 Manrope, sans-serif;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.architecture-card summary strong {
+  font: 700 1.1rem/1.3 Manrope, sans-serif;
+}
+
+.architecture-action {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: .5rem;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.architecture-action::after {
+  content: "+";
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--green);
+  font-size: 1.15rem;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.architecture-card[open] .architecture-action::after {
+  content: "−";
+  background: var(--surface-strong);
+  transform: rotate(180deg);
+}
+
+.architecture-card[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.architecture-diagram {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.3rem;
+  padding: 1.35rem;
+}
+
+.architecture-node {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 8.4rem;
+  align-content: start;
+  gap: .28rem;
+  padding: .9rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(7,17,13,.6);
+}
+
+.architecture-node:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -1.05rem;
+  z-index: 2;
+  color: var(--green);
+  font-weight: 800;
+  transform: translate(50%,-50%);
+}
+
+.architecture-node small {
+  color: var(--muted);
+  font: 700 .63rem/1.3 Manrope, sans-serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.architecture-node strong {
+  color: var(--text);
+  font: 700 .9rem/1.35 Manrope, sans-serif;
+}
+
+.architecture-node span {
+  color: var(--muted);
+  font-size: .73rem;
+  line-height: 1.45;
+}
+
+.architecture-node.source {
+  border-color: rgba(169,181,174,.32);
+}
+
+.architecture-node.process {
+  border-color: rgba(120,230,170,.3);
+}
+
+.architecture-node.intelligence {
+  border-color: rgba(200,245,107,.58);
+  background: linear-gradient(145deg,rgba(200,245,107,.1),rgba(7,17,13,.62));
+}
+
+.architecture-node.outcome {
+  border-color: rgba(245,247,245,.42);
+  background: linear-gradient(145deg,rgba(120,230,170,.14),rgba(7,17,13,.62));
+}
+
+.architecture-guardrail {
+  margin: 0 1.35rem 1.35rem;
+  padding: .8rem 1rem;
+  border-left: 2px solid var(--green);
+  background: rgba(120,230,170,.055);
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.architecture-guardrail strong {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .architecture-heading {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+
+  .architecture-diagram {
+    grid-template-columns: 1fr;
+    gap: .65rem;
+  }
+
+  .architecture-node {
+    min-height: auto;
+  }
+
+  .architecture-node:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: 50%;
+    bottom: -.65rem;
+    transform: translate(50%,50%);
+  }
+}
+
+@media (max-width: 430px) {
+  .architecture-showcase {
+    margin-top: 2.75rem;
+  }
+
+  .architecture-card summary {
+    min-height: 5rem;
+    padding: 1rem;
+  }
+
+  .architecture-action {
+    font-size: 0;
+  }
+
+  .architecture-action::after {
+    font-size: 1.15rem;
+  }
+
+  .architecture-diagram {
+    padding: 1rem;
+  }
+
+  .architecture-guardrail {
+    margin: 0 1rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .architecture-action::after {
+    transition: none;
+  }
+}
