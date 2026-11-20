@@ -106,6 +106,9 @@ document.addEventListener("click",event=>{
  else if(link.matches('a[href*="linkedin.com"]')) trackEvent("click_linkedin");
  else if(link.matches('a[href*="github.com"]')) trackEvent("click_github");
 });
+document.querySelectorAll(".architecture-card").forEach(card=>card.addEventListener("toggle",()=>{
+ if(card.open) trackEvent("view_architecture",{project:card.dataset.project});
+}));
 musicToggle.addEventListener("click",()=>trackEvent("toggle_music",{state:music.paused?"off":"on"}));
 const contactForm=document.querySelector(".contact-form");
 let contactStarted=false;
